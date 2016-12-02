@@ -126,7 +126,7 @@ public class GateMapper extends PepperMapperImpl {
 				boolean bname = false, bvalue = false;
 				boolean bgatedocfeat = false;
 				boolean banno = false;
-				String as_name = "";
+				String as_name = ""; //name of annotation set
 				String nodeID = "";
 
 				int a_start = -1, a_end = -1;
@@ -159,7 +159,7 @@ public class GateMapper extends PepperMapperImpl {
 								}
 							} else if (EndNode_TAG.equals(attributes.getQName(i))) {
 								try {
-									a_end = Integer.parseInt(attributes.getValue(i).trim());
+									a_end = Integer.parseInt(attributes.getValue(i).trim())-1;
 								} catch (NumberFormatException e) {
 									logger.error("NumberFormatException in Annotation {} at: {}", a_name, attributes.getValue(i));
 								}
